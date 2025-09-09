@@ -1,14 +1,17 @@
-import { useState } from 'react'
-import './App.css'
+import  { useEffect, useState } from "react";
+import HyperspacePreloader from "./components/Preloader/Preloader.tsx";
 
-function App() {
+
+export default function App() {
 
 
   return (
     <>
     
+        <HyperspacePreloader
+      
+        />
+  
     </>
-  )
+  );
 }
-
-export default App

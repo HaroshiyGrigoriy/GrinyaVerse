@@ -1,0 +1,69 @@
+.preloader {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, #2b2727, #000000);
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  animation: fadeOut 0.8s ease 5s forwards;
+}
+.border {
+  
+  justify-content: center;       /* По центру по горизонтали */
+  align-items: center;           /* По центру по вертикали */
+  width: fit-content;            /* Ширина под контент */
+  padding: 20px;           
+  background: #253423;
+  border-radius: 15px;
+    margin-bottom: 0.5em;
+  animation: pulse 2s infinite ease-in-out;
+  padding: 70px;
+}
+.title {
+    font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: 3.5rem;
+  color: var(--color-text);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 0.5em;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.subtitle {
+  font-family: var(--font-mono);
+  font-size: 1.75rem;
+  color: var(--color-accent);
+  text-align: center;
+}
+
+.logo {
+font-size: 2.5rem;
+margin-bottom: 1rem;
+animation: pulse 1.5s infinite;
+}
+
+.loader{
+  font-size: 1rem;
+  opacity: 0.7;
+}
+
+@keyframes pulse{
+  0%,100%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.1);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

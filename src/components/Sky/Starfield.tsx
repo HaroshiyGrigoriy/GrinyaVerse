@@ -1,37 +1,51 @@
 import React, {useRef, useEffect} from "react";
 import "./starfield.scss";
+import { s } from "framer-motion/client";
 
 
+type Star = {
+    width: number,
+    height: number,
+    radiuse: number,
+    color: string,
+    alpha: number
+}
 
+function generateStars (count: number, canvas: HTMLCanvasElement): Star[]{
+  const stars: Star[] = [];
+
+  for (let i = 0; i < count; i++) {
+    stars.push({
+      width: Math.random() * canvas.width,
+      height: Math.random() * canvas.height,
+      radiuse: 0.8 + Math.random() * 1.8,
+      color: "#fff",
+      alpha: 0.5 +Math.random() * 0.5
+    });
+  }
+  return stars;
+}
+
+function drawStars(ctx: CanvasRenderingContext2D,stars: Star[]){
+  for(const star of stars) {
+    ctx.beginPath();
+        ctx.arc(
+      star.width,
+      star.height,
+      star.radiuse,
+      0,
+      Math.PI*2
+    ); //указал куда ткнуть и координаты с размером кисти
+    //закрыл функцию arc
+    ctx.fillStyle = star.color;
+    ctx.globalAlpha = star.alpha;
+    ctx.fill();
+  }
+  ctx.globalAlpha=1;
+}
 
 const StarField: React.FC = () => {
-  const stars = [
-  { 
-    width: 234,
-    height: 212,
-    radiuse: 2,
-    color: "#fff",
-    alpha: 1 
-  },
-  {   width: 246,
-    height: 514,
-    radiuse: 2,
-    color: "#fff",
-    alpha: 1
-  },
-  {   width: 612 ,
-    height: 327,
-    radiuse: 2,
-    color: "#fff",
-    alpha: 1
-  },
-  {   width: 544,
-    height: 937,
-    radiuse: 2,
-    color: "#fff",
-    alpha: 1},
-]
-;
+
   const canvasRef = useRef<HTMLCanvasElement | null >(null) ;
 
   useEffect(() => {
@@ -55,21 +69,8 @@ const StarField: React.FC = () => {
       ctx.fillStyle= "#22a0a0";
       ctx.fillRect(0,0,canvas.width,canvas.height);
 
-
-  for (const star of stars){
-    ctx.beginPath();//поставил перо
-    ctx.arc(
-      star.width,
-      star.height,
-      star.radiuse,
-      0,
-      Math.PI*2
-    ); //указал куда ткнуть и координаты с размером кисти
-    //закрыл функцию arc
-    ctx.fillStyle = star.color;
-    ctx.globalAlpha = star.alpha;
-    ctx.fill();
-  }
+      const stars = generateStars(100,canvas);
+      drawStars(ctx,stars);
       ctx.globalAlpha = 1;
 
     }

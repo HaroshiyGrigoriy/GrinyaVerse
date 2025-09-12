@@ -1,7 +1,37 @@
 import React, {useRef, useEffect} from "react";
 import "./starfield.scss";
 
+
+
+
 const StarField: React.FC = () => {
+  const stars = [
+  { 
+    width: 234,
+    height: 212,
+    radiuse: 2,
+    color: "#fff",
+    alpha: 1 
+  },
+  {   width: 246,
+    height: 514,
+    radiuse: 2,
+    color: "#fff",
+    alpha: 1
+  },
+  {   width: 612 ,
+    height: 327,
+    radiuse: 2,
+    color: "#fff",
+    alpha: 1
+  },
+  {   width: 544,
+    height: 937,
+    radiuse: 2,
+    color: "#fff",
+    alpha: 1},
+]
+;
   const canvasRef = useRef<HTMLCanvasElement | null >(null) ;
 
   useEffect(() => {
@@ -25,29 +55,21 @@ const StarField: React.FC = () => {
       ctx.fillStyle= "#22a0a0";
       ctx.fillRect(0,0,canvas.width,canvas.height);
 
-      const centerWidth= canvas.width/2;
-      const centerHeight=canvas.height/2;
 
-      const starPxRadius = 2;
-
-      ctx.beginPath();
-      ctx.arc(centerWidth,centerHeight, starPxRadius,0,Math.PI*2);
-      ctx.fillStyle = "#fff";
-      ctx.globalAlpha = 1;
-      ctx.fill();
-
-      ctx.beginPath();
-      ctx.arc(123,333,starPxRadius,0,Math.PI*2);
-      ctx.fillStyle = "#fff";
-      ctx.globalAlpha = 1;
-      ctx.fill();
-
-      ctx.beginPath();
-      ctx.arc(123,133,starPxRadius,0,Math.PI*2);
-      ctx.fillStyle = "#fff";
-      ctx.globalAlpha = 1;
-      ctx.fill();
-
+  for (const star of stars){
+    ctx.beginPath();//поставил перо
+    ctx.arc(
+      star.width,
+      star.height,
+      star.radiuse,
+      0,
+      Math.PI*2
+    ); //указал куда ткнуть и координаты с размером кисти
+    //закрыл функцию arc
+    ctx.fillStyle = star.color;
+    ctx.globalAlpha = star.alpha;
+    ctx.fill();
+  }
       ctx.globalAlpha = 1;
 
     }

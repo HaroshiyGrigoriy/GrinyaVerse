@@ -35,6 +35,19 @@ const StarField: React.FC = () => {
       ctx.fillStyle = "#fff";
       ctx.globalAlpha = 1;
       ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(123,333,starPxRadius,0,Math.PI*2);
+      ctx.fillStyle = "#fff";
+      ctx.globalAlpha = 1;
+      ctx.fill();
+
+      ctx.beginPath();
+      ctx.arc(123,133,starPxRadius,0,Math.PI*2);
+      ctx.fillStyle = "#fff";
+      ctx.globalAlpha = 1;
+      ctx.fill();
+
       ctx.globalAlpha = 1;
 
     }

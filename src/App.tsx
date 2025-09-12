@@ -1,16 +1,12 @@
 import  { useEffect, useState } from "react";
-import HyperspacePreloader from "./components/Preloader/Preloader.tsx";
+import StarField from "./components/Sky/Starfield";
 
 
 export default function App() {
-
-
   return (
     <>
     
-        <HyperspacePreloader
-      
-        />
+      <StarField/>
   
     </>
   );

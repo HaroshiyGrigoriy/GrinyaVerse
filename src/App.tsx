@@ -1,13 +1,12 @@
-import  { useEffect, useState } from "react";
-import StarField from "./components/Sky/Starfield";
+import FullCanvas from "./components/Canvas/FullCanvas";
+import MilkyWayCanvas from "./components/Sky/StarCanvas";
 
 
 export default function App() {
   return (
     <>
-    
-      <StarField/>
-  
+     <FullCanvas />
+     
     </>
   );
 }

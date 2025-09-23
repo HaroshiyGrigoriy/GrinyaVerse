@@ -1,0 +1,122 @@
+:root {
+  --accent: var(--color-accent, #24107d65);
+  --ink: #eaeaf5;
+  --bg-1: #121327;
+  --bg-2: #0e0f21;
+}
+
+.wrap {
+  position: relative;
+  padding: clamp(48px, 8vw, 96px) 16px clamp(72px, 12vw, 140px);
+  overflow: hidden;
+}
+
+.aura {
+  position: absolute;
+  inset: -10% -6%;
+  pointer-events: none;
+  background:
+    radial-gradient(1100px 360px at 62% 18%, color-mix(in oklab, var(--accent) 16%, transparent), transparent 70%),
+    radial-gradient(760px 300px at 22% 84%, rgba(35,177,255,.12), transparent 75%);
+  filter: blur(.4px);
+  opacity: .9;
+}
+
+.title {
+  margin: 0 0 clamp(18px, 3vw, 28px);
+  text-align: center;
+  font-size: clamp(20px, 4.2vw, 34px);
+  letter-spacing: .02em;
+  color: color-mix(in oklab, var(--accent) 75%, white 10%);
+  text-shadow: 0 6px 28px color-mix(in oklab, var(--accent) 28%, transparent);
+}
+
+.flow {
+  position: relative;
+  max-width: 1040px;
+  margin: 0 auto;
+  display: grid;
+  gap: clamp(26px, 5vw, 44px);
+}
+
+/* Базовый блок-лента (не квадрат!) */
+.stanza {
+  --delay: 0ms;
+  position: relative;
+  max-width: min(760px, 100%);
+  background: linear-gradient(160deg, rgba(18,19,40,.65), rgba(12,14,28,.52));
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 34px 26px 40px 28px / 30px 38px 26px 34px; /* органические углы */
+  padding: clamp(18px, 3.2vw, 28px) clamp(16px, 3.4vw, 30px);
+  color: var(--ink);
+  line-height: 1.75;
+  box-shadow:
+    0 10px 36px rgba(0,0,0,.35),
+    0 0 44px color-mix(in oklab, var(--accent) 12%, transparent);
+  backdrop-filter: blur(10px) saturate(1.05);
+  transform: translateY(10px) scale(.985) rotate(var(--tilt, 0deg));
+  opacity: 0;
+  transition:
+    opacity .6s ease var(--delay),
+    transform .6s ease var(--delay),
+    box-shadow .25s ease;
+}
+.stanza:hover { box-shadow:
+  0 14px 46px rgba(0,0,0,.38),
+  0 0 64px color-mix(in oklab, var(--accent) 16%, transparent);
+}
+.reveal { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
+
+/* Левое/правое выравнивание — чередуем для живости */
+.left  { margin-left: 0;  margin-right: auto; --tilt: 0.9deg; }
+.right { margin-left: auto; margin-right: 0;   --tilt: -1.2deg; }
+
+/* Боковая светящаяся лента */
+.ribbon {
+  position: absolute;
+  top: 8%; bottom: 8%;
+  width: 4px;
+  border-radius: 999px;
+  filter: blur(.3px);
+  background:
+    linear-gradient(180deg, transparent, color-mix(in oklab, var(--accent) 45%, transparent) 50%, transparent);
+  box-shadow:
+    0 0 32px color-mix(in oklab, var(--accent) 24%, transparent),
+    0 0 8px rgba(255,255,255,.18);
+}
+.left  .ribbon { left: -10px; }
+.right .ribbon { right: -10px; }
+
+/* Акцентные блоки — немного ярче и крупнее шрифт */
+.isAccent {
+  border-color: color-mix(in oklab, var(--accent) 28%, transparent);
+  background:
+    conic-gradient(from 160deg at 10% 10%, color-mix(in oklab, var(--accent) 12%, transparent) 0 20%, transparent 20% 100%),
+    linear-gradient(160deg, rgba(22,23,48,.7), rgba(14,15,32,.6));
+}
+.isAccent .text {
+  color: #eaeafc;
+  font-weight: 700;
+  letter-spacing: .01em;
+}
+
+/* Текст */
+.text {
+  font-size: clamp(18px, 3.2vw, 20px);
+  margin: 0;
+}
+
+/* финальная подпись */
+.footerNote {
+  margin-top: clamp(24px, 5vw, 40px);
+  text-align: center;
+  font-size: clamp(14px, 2.8vw, 18px);
+  opacity: .8;
+  color: #cfd3ff;
+  font-style: italic;
+}
+
+/* немного просторнее на десктопе */
+@media (min-width: 900px) {
+  .stanza { padding: 28px 34px; }
+}

@@ -1,0 +1,146 @@
+// твои сбросы по желанию
+/* hero.module.scss — мобиль-first, без дублей правил */
+
+.welcome {
+  position: relative;
+  min-height: 100dvh;
+  overflow: clip;
+  display: grid;
+  place-items: center;
+  padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  text-align: center;
+  padding: 16px;
+  border-radius: 20px;
+  backdrop-filter: blur(6px);
+}
+
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: .3px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+  margin-bottom: 12px;
+}
+
+/* ===== Аватар: увеличенный размер + кольцо и свечение ===== */
+:root { --avatar-size: 112px; }
+
+.avatarWrap {
+  --size: var(--avatar-size);
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  position: relative;
+  margin: 6px auto 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.45);
+  animation: float 6s ease-in-out infinite;
+}
+
+/* градиентное тонкое кольцо */
+.avatarWrap::before {
+  content: "";
+  position: absolute; inset: -3px;
+  border-radius: 50%;
+  padding: 2px;
+  background: conic-gradient(from 180deg,
+    var(--color-accent, #7a5cff),
+    #23b1ff,
+    var(--color-accent, #7a5cff)
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
+
+/* мягкое внешнее свечение */
+.avatarWrap::after {
+  content: "";
+  position: absolute; inset: -14px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side,
+    color-mix(in oklab, var(--color-accent, #7a5cff) 25%, transparent),
+    transparent 70%);
+  filter: blur(10px);
+  z-index: -1;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: block;
+  object-fit: cover;
+}
+
+@keyframes float { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-4px) } }
+
+.title {
+  font-size: clamp(20px, 5.5vw, 28px);
+  line-height: 1.2;
+  margin: 0 0 8px;
+  color: var(--color-text, #eaeaf5);
+  text-wrap: balance;
+}
+
+.subtitle {
+  margin: 0 0 16px;
+  opacity: .86;
+  text-wrap: pretty;
+}
+
+.cta {
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+  margin-top: 4px;
+}
+
+.btnPrimary {
+  width: min(420px, 100%);
+  padding: 13px 18px;
+  font-weight: 700;
+  border-radius: 14px;
+  border: 1px solid color-mix(in oklab, var(--color-accent, #7a5cff) 70%, #fff 0%);
+  background: color-mix(in oklab, var(--color-accent, #7a5cff) 22%, transparent);
+  color: #fff;
+  backdrop-filter: blur(6px);
+  transition: transform .15s ease, background-position .2s ease, box-shadow .2s ease;
+  box-shadow: 0 12px 28px rgba(0,0,0,.35);
+}
+.btnPrimary:active { transform: translateY(1px) scale(.995); }
+
+/* адаптация */
+@media (min-width: 480px) { :root { --avatar-size: 124px; } }
+
+@media (min-width: 768px) {
+  .content { padding: 24px 28px; }
+  .title   { font-size: clamp(26px, 3.4vw, 38px); }
+}
+
+@media (min-width: 900px) {
+  :root { --avatar-size: 148px; }
+
+  .content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 24px;
+    align-items: center;
+    text-align: left;
+    justify-items: start;
+    max-width: 860px;
+  }
+  .badge { justify-self: start; grid-column: 1 / -1; }
+  .avatarWrap { grid-row: 2 / span 3; }
+  .title, .subtitle, .cta { grid-column: 2; }
+}

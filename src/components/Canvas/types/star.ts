@@ -6,6 +6,7 @@ export type Star = {
   // vx: number;
   // vy: number;
   baseAlpha: number;
-  // twinkle: number;
-  // phase: number;
+  twinkle: number;
+  phase: number;
+   ci?: number;
 };

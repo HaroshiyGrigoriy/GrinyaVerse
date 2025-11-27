@@ -1,0 +1,330 @@
+/* src/pages/sanych/sanich.scss */
+
+/* Цвета и типографика */
+:root {
+  --bg: #ecdec8;               /* светлый тёплый фон (слоновая кость/молочный) */
+  --surface: #bbb2b2;
+  --ink: #2c5535;              /* основной текст */
+  --muted: #5a646e;            /* вторичный текст */
+  --accent: #69ac8a;           /* тёмно-зелёный/оливковый */
+  --accent-2: #8a5a3c;         /* тёплый коричневый (дерево/кофе) */
+  --line: #e9e4de;
+
+  --radius: 16px;
+  --shadow: 0 6px 24px rgba(0,0,0,.06);
+
+  --h1: clamp(28px, 4vw, 44px);
+  --h2: clamp(22px, 3vw, 28px);
+  --body: clamp(16px, 1.6vw, 18px);
+  --small: 14px;
+}
+
+.sanich {
+  background: var(--bg);
+  color: var(--ink);
+  font-size: var(--body);
+  line-height: 1.6;
+  padding-bottom: 64px;
+}
+
+.sanich--narrow {
+   background: var(--bg);
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* HERO */
+.sanich__hero {
+  position: relative;
+  padding: 56px 24px 40px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, #fff 0%, var(--bg) 100%);
+  border-bottom: 1px solid var(--line);
+}
+
+.sanich__hero-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.sanich__title {
+  font-size: var(--h1);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 800;
+  margin: 0 0 12px;
+}
+
+.sanich__subtitle {
+  font-size: clamp(18px, 2.2vw, 20px);
+  color: var(--muted);
+  margin: 0 0 20px;
+}
+
+.sanich__benefits {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 20px;
+  padding-left: 18px;
+}
+
+.sanich__cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* контурная «иллюстрация» поля */
+.sanich__hero-illustration {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 120px;
+  background:
+    radial-gradient(120% 80% at 50% 120%, rgba(47,111,79,.08), transparent 60%),
+    linear-gradient(0deg, transparent, rgba(138,90,60,.06));
+  pointer-events: none;
+}
+
+/* HOW IT WORKS */
+.sanich__how {
+  max-width: 880px;
+  margin: 32px auto 0;
+  padding: 0 24px;
+}
+
+.section-title {
+  font-size: var(--h2);
+  font-weight: 750;
+  margin: 0 0 12px;
+  letter-spacing: -0.01em;
+}
+
+.sanich__steps {
+  padding-left: 20px;
+  margin: 0 0 8px;
+}
+
+.sanich__note {
+  color: var(--muted);
+}
+
+/* MODULES GRID */
+.modules {
+  max-width: 1120px;
+  margin: 40px auto 0;
+  padding: 0 24px;
+}
+
+.modules__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 16px;
+}
+
+@media (max-width: 980px) {
+  .modules__grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (max-width: 640px) {
+  .modules__grid { grid-template-columns: 1fr; }
+}
+
+.module-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.module-card__title {
+  font-size: 20px;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.module-card__desc {
+  color: var(--muted);
+  margin: 0;
+}
+
+.module-card__bullets {
+  padding-left: 18px;
+  margin: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.module-card__footer {
+  margin-top: auto;
+}
+
+/* FOR WHOM / OUTCOME */
+.sanich__for,
+.sanich__outcome,
+.sanich__bio {
+  max-width: 880px;
+  margin: 40px auto 0;
+  padding: 0 24px;
+}
+
+.sanich__for-list,
+.sanich__outcome-list {
+  padding-left: 18px;
+  margin: 0;
+  display: grid;
+  gap: 6px;
+}
+
+/* TOPICS (детальная страница модуля) */
+.sanich__breadcrumbs {
+  margin: 8px 0 12px;
+}
+
+.link {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(47,111,79,.3);
+}
+.link:hover { border-bottom-color: var(--accent); }
+
+.topics {
+  margin-top: 12px;
+}
+.topics__list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+.topics__card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+.topics__title {
+  font-weight: 750;
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+}
+.topics__text { margin: 0; color: var(--muted); }
+
+/* Кнопки */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  border: 1px solid transparent;
+  transition: transform .06s ease, box-shadow .2s ease, background .2s ease;
+}
+.btn:active { transform: translateY(1px); }
+
+.btn--primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn--primary:hover { box-shadow: 0 8px 20px rgba(47,111,79,.25); }
+
+.btn--secondary {
+  background: var(--accent-2);
+  color: #fff;
+}
+.btn--secondary:hover { box-shadow: 0 8px 20px rgba(138,90,60,.25); }
+
+.btn--ghost {
+  background: #ffffff;
+  border-color: var(--line);
+  color: var(--ink);
+}
+.btn--ghost:hover { box-shadow: 0 8px 20px rgba(0,0,0,.06); }
+/* --- СЛОИСТЫЙ ЛЕЙАУТ --- */
+.shell {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  padding: 24px;
+  margin: 0 auto;
+}
+@media (max-width: 980px) {
+  .shell { grid-template-columns: 1fr; }
+}
+
+/* Левый сайдбар */
+.shell__aside {
+  position: sticky;
+  top: 16px;
+  align-self: start;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
+.aside__title { font-size: 18px; margin: 8px 0 4px; font-weight: 800; }
+.aside__desc { color: var(--muted); margin: 0 0 12px; }
+
+/* Дерево навигации */
+.tree__section { margin: 12px 0; }
+.tree__section-link {
+  display: block; font-weight: 750; margin-bottom: 6px; text-decoration: none; color: var(--ink);
+}
+.tree__section-link.active { color: var(--accent); }
+.tree__topics { list-style: none; padding-left: 12px; margin: 0; display: grid; gap: 4px; }
+.tree__topic-link {
+  display: block; text-decoration: none; color: var(--muted); border-left: 2px solid transparent; padding-left: 8px;
+}
+.tree__topic-link.active { color: var(--accent); border-left-color: var(--accent); }
+
+/* Правая колонка */
+.shell__main { max-width: 840px; }
+
+/* Крошки */
+.breadcrumbs { margin-bottom: 10px; color: var(--muted); font-size: var(--small); }
+.crumb--current { color: var(--ink); font-weight: 700; }
+
+/* Карточки */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 16px;
+}
+@media (max-width: 720px) { .cards { grid-template-columns: 1fr; } }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  display: grid; gap: 8px;
+}
+.card--hoverable { transition: transform .08s ease, box-shadow .2s; }
+.card--hoverable:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,.08); }
+
+/* Полоска-акцент слева — даёт «глубину» и иерархию */
+.card--stripe { position: relative; }
+.card--stripe::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; border-radius: var(--radius) 0 0 var(--radius);
+  background: linear-gradient(180deg, var(--accent) 0%, #3b8a63 100%);
+}
+
+.card__title { font-size: 18px; font-weight: 800; margin: 0; }
+.card__text { color: var(--muted); margin: 0; }
+.card__list { margin: 0; padding-left: 18px; display: grid; gap: 4px; }
+.card__footer { margin-top: 6px; }
+
+/* Текстовые блоки */
+.prose { display: grid; gap: 10px; }
+.topic__actions { margin-top: 14px; }

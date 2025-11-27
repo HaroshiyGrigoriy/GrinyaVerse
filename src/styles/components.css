@@ -1,0 +1,203 @@
+/* Кнопки */
+.btn {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: clamp(12px, 1.5vw, 16px) clamp(20px, 2.5vw, 28px);
+  border-radius: var(--radius);
+  background: var(--glass);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-weight: 600;
+  font-size: clamp(14px, 1.1vw, 16px);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+  backdrop-filter: blur(10px);
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-glass);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  background: var(--glass-strong);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow), var(--shadow-glow-accent);
+  color: var(--text-bright);
+}
+
+.btn:hover::before {
+  opacity: 1;
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.btn--primary {
+  background: transparent;
+  color: #00ffff;
+  border: 2px solid #00ffff;
+  border-radius: 4px;
+  font-weight: 700;
+  font-family: "Courier New", "Monaco", "Menlo", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff,
+    inset 0 0 10px rgba(0, 255, 255, 0.1);
+  position: relative;
+  overflow: visible;
+}
+
+.btn--primary::before {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 255, 0.2),
+    rgba(0, 128, 255, 0.2)
+  );
+}
+
+.btn--primary:hover {
+  background: rgba(0, 255, 255, 0.1);
+  box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #0080ff,
+    inset 0 0 20px rgba(0, 255, 255, 0.2);
+  transform: translateY(-3px) scale(1.02);
+  color: #ffffff;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+.btn--primary:active {
+  transform: translateY(-1px) scale(1);
+}
+
+/* Sci-Fi стиль для обычных кнопок в Hero */
+.hero .btn:not(.btn--primary) {
+  background: transparent;
+  color: #ff6bff;
+  border: 2px solid #ff6bff;
+  border-radius: 4px;
+  font-family: "Courier New", "Monaco", "Menlo", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  box-shadow: 0 0 10px #ff6bff, 0 0 20px #ff6bff,
+    inset 0 0 10px rgba(255, 107, 255, 0.1);
+}
+
+.hero .btn:not(.btn--primary)::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 107, 255, 0.2),
+    rgba(200, 50, 255, 0.2)
+  );
+}
+
+.hero .btn:not(.btn--primary):hover {
+  background: rgba(255, 107, 255, 0.1);
+  box-shadow: 0 0 20px #ff6bff, 0 0 40px #ff6bff, 0 0 60px #ff00ff,
+    inset 0 0 20px rgba(255, 107, 255, 0.2);
+  color: #ffffff;
+  text-shadow: 0 0 10px #ff6bff;
+}
+
+.btn--ghost {
+  background: transparent;
+  border-color: var(--border-light);
+}
+
+.btn--ghost:hover {
+  background: var(--glass);
+  border-color: var(--border);
+}
+
+.btn--wide {
+  width: 100%;
+  max-width: 300px;
+}
+
+@media (min-width: 768px) {
+  .btn--wide {
+    max-width: 320px;
+  }
+}
+
+/* Ticker (анимация имён) - Sci-Fi стиль */
+.ticker__item {
+  display: inline-block;
+  min-width: 7ch;
+  animation: tickerFade 0.5s ease;
+  color: #80ff80;
+  font-weight: 600;
+  text-shadow: 0 0 8px #80ff80;
+  font-family: "Courier New", "Monaco", "Menlo", monospace;
+}
+
+@keyframes tickerFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Дополнительные эффекты для космической атмосферы */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker__item,
+  .btn,
+  .card,
+  .project,
+  .map__item {
+    animation: none;
+    transition: none;
+  }
+
+  .btn:hover,
+  .card:hover,
+  .project:hover,
+  .map__item:hover {
+    transform: none;
+  }
+}
+
+/* Улучшенная читаемость на мобильных */
+@media (max-width: 480px) {
+  .btn {
+    padding: 14px 20px;
+    font-size: 15px;
+  }
+
+  .card,
+  .project {
+    padding: 20px;
+  }
+}

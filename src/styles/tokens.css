@@ -1,0 +1,75 @@
+:root {
+  /* Цвета космоса - Sci-Fi палитра */
+  --bg: #000510; /* глубокий космос */
+  --bg-dark: #000000; /* абсолютная тьма */
+  --bg-light: #0a0f1a; /* чуть светлее для панелей */
+
+  /* Типографика */
+  --text: #e0e8ff; /* светлая типографика с голубым оттенком */
+  --text-bright: #ffffff; /* яркий текст */
+  --muted: #8a9bb8; /* приглушённый текст */
+  --muted-dark: #5a6a85; /* очень приглушённый */
+
+  /* Sci-Fi акценты */
+  --accent: #00ffff; /* неоновый голубой */
+  --accent-light: #40ffff; /* светлее */
+  --accent-dark: #0080ff; /* темнее */
+  --gold: #ff6bff; /* неоновый розовый */
+  --gold-light: #ff8fff; /* светлее */
+  --gold-dark: #ff00ff; /* темнее */
+  --green: #80ff80; /* неоновый зелёный */
+
+  /* Glassmorphism */
+  --panel: rgba(0, 255, 255, 0.05);
+  --glass: rgba(0, 255, 255, 0.08);
+  --glass-strong: rgba(0, 255, 255, 0.15);
+  --border: rgba(0, 255, 255, 0.2);
+  --border-light: rgba(0, 255, 255, 0.1);
+  --border-strong: rgba(0, 255, 255, 0.3);
+
+  /* Градиенты */
+  --gradient-gold: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  --gradient-accent: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  --gradient-hero: linear-gradient(135deg, var(--accent), var(--gold));
+  --gradient-glass: linear-gradient(
+    135deg,
+    rgba(0, 255, 255, 0.1),
+    rgba(255, 107, 255, 0.1)
+  );
+  --gradient-space: linear-gradient(
+    to bottom,
+    #000510 0%,
+    #0a0f1a 50%,
+    #000510 100%
+  );
+
+  /* Тени */
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.7);
+  --shadow-glow: 0 0 40px rgba(0, 255, 255, 0.3);
+  --shadow-glow-accent: 0 0 40px rgba(255, 107, 255, 0.3);
+
+  /* Радиусы */
+  --radius: 16px;
+  --radius-sm: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-full: 999px;
+
+  /* Максимальная ширина */
+  --maxw: 1280px;
+  --maxw-wide: 1440px;
+
+  /* Анимации */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.6s ease;
+  --transition-bounce: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* Z-index слои */
+  --z-starfield: -2;
+  --z-overlay: -1;
+  --z-base: 1;
+  --z-elevated: 10;
+  --z-modal: 100;
+}

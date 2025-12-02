@@ -10,11 +10,10 @@ import Footer from "../components/Footer";
 import Starfield from "../components/Starfield";
 import Layout from "../components/Layout";
 import WhatIsGVerse from "../components/WhatIsGVerse";
-
-import "../styles/tokens.css";
-import "../styles/base.css";
-import "../styles/layout.css";
-import "../styles/components.css";
+import "../styles/tokens.scss";
+import "../styles/base.scss";
+import "../styles/layout.scss";
+import "../styles/components.scss";
 
 export default function HomePage(){
   return (
@@ -23,8 +22,8 @@ export default function HomePage(){
       <Starfield/>
 
       {/* ОДИН главный контейнер */}
-      <Layout>
         <Hero />
+        <Layout>
         <WhatIsGVerse />   {/* ← твой манифест тут */}
         <MapNav />         {/* id="mapnav" чтобы прыгать из Hero */}
         <About />

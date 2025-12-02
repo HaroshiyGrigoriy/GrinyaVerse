@@ -1,32 +1,44 @@
 // src/pages/SanychPage.jsx
-import { Outlet, NavLink } from "react-router-dom";
-import styles from "./sanych/Layout.moduke.css";
+import { Link } from "react-router-dom";
+import "./SanychPage.scss";
 
-export default function SanychPage() {
+export default function SanychHome() {
   return (
-    <div className={styles.wrap}>
-      <header className={styles.header}>
-        <div className="container">
-          <div className={styles.headerRow}>
-            <div className={styles.brand}>Sanych • Кофейня</div>
-            <nav className={styles.nav}>
-              <NavLink to="/sanych" end>Главная</NavLink>
-              <NavLink to="/sanych/start">Подготовка</NavLink>
-              <NavLink to="/sanych/process">Процессы</NavLink>
-              <NavLink to="/sanych/finance">Финансы</NavLink>
-              <NavLink to="/sanych/docs">Документы</NavLink>
-            </nav>
-          </div>
-        </div>
-      </header>
+    <body>
+    <header>
+      <div>
+        <div className="logo">
 
-      <main className={styles.main}><Outlet /></main>
-
-      <footer className={styles.footer}>
-        <div className="container">
-          <small>Поддержка: Гриша • контакт внутри</small>
         </div>
-      </footer>
-    </div>
+          <nav>
+            <ol>
+              <li>
+                <Link>
+                </Link> 
+              </li>
+              <li>
+                <Link>
+                </Link>
+              </li>
+              <li>
+                <Link>
+                </Link>
+            </li>
+          </ol>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div>
+
+      </div>
+      <main>
+        
+      </main>
+    </main>
+    <footer>
+
+    </footer>
+    </body>
   );
 }

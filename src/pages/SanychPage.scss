@@ -1,0 +1,147 @@
+/* src/pages/SanychPage.scss */
+
+$sanych-max-width: 1120px;
+$bp-desktop: 900px;
+
+.sanych-page {
+  min-height: 100vh;
+  background: #f6f4f1;
+  color: #2b2b2b;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+
+  /* ОДИН общий контейнер для всей страницы */
+  &__inner {
+    width: 100%;
+    max-width: $sanych-max-width;
+    margin: 0 auto;
+    padding: 0 16px; // чтобы не липло к краям на маленьких экранах
+  }
+
+  &__header {
+    border-bottom: 1px solid #e2dbd0;
+    background: #fdfaf5;
+  }
+
+  &__inner--header {
+    /* на мобиле — просто один ряд, но можем чуть уменьшить вертикальные отступы */
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__logo {
+    font-size: 24px;
+  }
+
+  &__title {
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  &__subtitle {
+    font-size: 13px;
+    color: #7a7368;
+  }
+
+  &__topnav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  &__topnav-btn {
+    font-size: 13px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: #7a7368;
+    cursor: pointer;
+    transition: background-color 0.16s ease, border-color 0.16s ease, color 0.16s ease;
+
+    &:hover {
+      background: rgba(95, 131, 109, 0.06);
+      border-color: #e2dbd0;
+      color: #2b2b2b;
+    }
+  }
+
+  &__main {
+    flex: 1 0 auto;
+    padding: 16px 0 24px;
+  }
+
+  /* !!!! Внимание: на МАЛЕНЬКОМ экране — просто колонка !!!! */
+  &__inner--main {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__sidebar-title {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  &__sidebar-list {
+    margin: 0;
+    padding-left: 16px;
+    font-size: 13px;
+    color: #7a7368;
+  }
+
+  &__content {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 26px rgba(20, 20, 20, 0.06);
+    padding: 16px 18px 20px;
+  }
+
+  &__content-title {
+    font-size: 20px;
+    margin: 0 0 8px;
+  }
+
+  &__content-text {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  &__footer {
+    flex: 0 0 auto;
+    padding: 10px 0 16px;
+    font-size: 12px;
+    color: #7a7368;
+  }
+
+  /* ===== ДЕСКТОПНЫЙ РЕЖИМ ===== */
+  @media (min-width: $bp-desktop) {
+    &__inner--header {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+
+    &__inner--main {
+      display: grid;
+      grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+      gap: 20px;
+      align-items: flex-start;
+    }
+  }
+}

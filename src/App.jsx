@@ -1,17 +1,30 @@
-// src/App.jsx
 import { Routes, Route } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
-import SanychPage from "./pages/SanychPage";
+import SanychHome from "./pages/SanychPage";
 
 export default function App() {
   return (
     <Routes>
-      {/* Главная G-Verse */}
       <Route path="/" element={<HomePage />} />
-      <Route path="/sanych" element={<SanychPage/ >}>
-        <Route index element = {<SanychHome/>} />      
-      </Route>
+
+      {/* Главная страница Саныча */}
+      <Route path="/sanych" element={<SanychHome />} />
+
+      {/* Пока нет других страниц — просто добавим заглушки */}
+      <Route path="/sanych/modules" element={<div>Карта модулей</div>} />
+      <Route path="/sanych/start" element={<div>Старт кофейни</div>} />
+      <Route path="/sanych/checklists" element={<div>Чек-листы</div>} />
+      <Route path="/sanych/documents" element={<div>Документы</div>} />
+      <Route path="/sanych/calculator" element={<div>Калькуляторы</div>} />
+      <Route path="/sanych/staff" element={<div>Персонал</div>} />
+
+      {/* Пример глубины */}
+      <Route path="/sanych/start/premises" element={<div>Premises</div>} />
+      <Route path="/sanych/start/power" element={<div>Power</div>} />
+      <Route path="/sanych/start/layout" element={<div>Layout</div>} />
+
+      {/* И так далее — постепенно заменишь на настоящие компоненты */}
     </Routes>
   );
 }

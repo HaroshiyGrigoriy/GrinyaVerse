@@ -1,5 +1,6 @@
 // src/components/Hero.jsx
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const NAMES = [
   "Гриша",
@@ -71,6 +72,7 @@ export default function Hero() {
             delay={0}
             onComplete={() => setShowSubtitle(true)}
           />
+     
         </h1>
 
         {showSubtitle && (
@@ -130,6 +132,8 @@ export default function Hero() {
           </p>
         )}
       </div>
+      <h2 className={""}><Link to = "/sanych">sanych</Link></h2>
     </section>
+    
   );
 }

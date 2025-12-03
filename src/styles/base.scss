@@ -152,8 +152,8 @@ p {
 
 @keyframes sciFiGlow {
   0% {
-    text-shadow: 0 0 10px #00ff15, 0 0 20px #00ff73, 0 0 30px #1eff00,
-      0 0 40px #0080ff, 0 0 70px #c300ff;
+    text-shadow: 0 0 10px #19ad0b, 0 0 20px #b84f09, 0 0 30px #11bd0b,
+      0 0 40px #ad131b, 0 0 70px #c300ff;
   }
   100% {
     text-shadow: 0 0 20px #c300ff, 0 0 30px #ff00f2, 0 0 40px #b700ff,
@@ -218,12 +218,12 @@ p {
   color: #80ff80;
   flex-wrap: wrap;
   font-family: "Courier New", "Monaco", "Menlo", monospace;
-  font-size: clamp(13px, 1.1vw, 16px);
+  font-size: clamp(18px, 1.1vw, 16px);
 }
 
 .hero__tag {
   opacity: 0.95;
-  text-shadow: 0 0 8px #80ff80;
+  text-shadow: 0 5px 28px #bb80ff;
 }
 
 .hero__sep {

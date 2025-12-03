@@ -1,0 +1,63 @@
+/* src/pages/sanych/menu/MenuIndex.scss */
+
+.menu-index {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+    justify-content: center;
+}
+
+.menu-index__intro {
+  font-size: 24px;
+  max-width: 620px;
+  opacity: 0.85;
+color: #527c2b;
+font-weight: 600;}
+
+.menu-index__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .menu-index__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.menu-section-card {
+  background: #7c996056;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: rgba(2, 131, 24, 0.795);
+}
+
+.menu-section-card__title {
+  font-size: 18px;
+  font-weight: 700;
+  color: rgba(2, 131, 24, 0.795);
+}
+
+.menu-section-card__text {
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0.9;
+  color: rgba(2, 131, 24, 0.795);
+}
+
+.menu-section-card__link {
+  margin-top: 4px;
+  align-self: flex-start;
+  font-size: 12px;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+    color: rgba(2, 131, 24, 0.795);
+
+}

@@ -1,0 +1,33 @@
+/* src/pages/sanych/SanychLayout.scss */
+.sanych-scope {
+  /* Цветовые токены (можно перенести в :root позже) */
+  --sanych-bg: #f4f1ea;
+  --sanych-surface: #fffdf8;
+  --sanych-ink: #2d2212;
+  --sanych-line: rgba(0, 0, 0, 0.08);
+  --sanych-accent: #6c8a5b; /* зелень */
+  --sanych-accent-ink: #173a1f;
+  --radius: 12px;
+
+  min-height: 100vh;
+  background: var(--sanych-bg);
+  color: var(--sanych-ink);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+}
+
+.sanych-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.sanych-layout__container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.sanych-layout__main {
+  flex: 1;
+  padding: 24px 0 32px;
+}

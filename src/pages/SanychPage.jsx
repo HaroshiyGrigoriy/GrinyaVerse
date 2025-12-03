@@ -1,44 +1,14 @@
-// src/pages/SanychPage.jsx
+// src/pages/sanych/SanychHome.jsx
+// src/pages/sanych/SanychHome.jsx
 import { Link } from "react-router-dom";
-import "./SanychPage.scss";
+import "./sanych/SanychHome.scss";
+import HeroSanych from "./sanych/components/SanychHero";
 
 export default function SanychHome() {
   return (
-    <body>
-    <header>
-      <div>
-        <div className="logo">
+    <div className="sn-home">
+      <HeroSanych />
 
-        </div>
-          <nav>
-            <ol>
-              <li>
-                <Link>
-                </Link> 
-              </li>
-              <li>
-                <Link>
-                </Link>
-              </li>
-              <li>
-                <Link>
-                </Link>
-            </li>
-          </ol>
-        </nav>
-      </div>
-    </header>
-    <main>
-      <div>
-
-      </div>
-      <main>
-        
-      </main>
-    </main>
-    <footer>
-
-    </footer>
-    </body>
+    </div>
   );
 }

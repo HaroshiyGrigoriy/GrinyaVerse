@@ -1,12 +1,21 @@
-import SanychHeader from "./components/SanychHeader";
-import SanychFooter from "./components/Sanychfooter";
+// src/pages/sanych/SanychLayout.jsx
+import { Outlet } from "react-router-dom";
+import "./SanychLayout.scss";
+import SanychHeader from "./components/SanychHeader.jsx";
+import SanychFooter from "./components/SanychFooter.jsx";
 
-import "../../pages/SanychPage.css";
-export default function SanychLayout(){
+export default function SanychLayout() {
   return (
-    <div className="sanych-page">
-    <SanychHeader></SanychHeader>
-    <SanychFooter></SanychFooter>
+    <div className="sanych-scope">
+      <div className="sanych-layout">
+        <SanychHeader />
+        <main className="sanych-layout__main">
+          <div className="sanych-layout__container">
+            <Outlet />
+          </div>
+        </main>
+        <SanychFooter />
+      </div>
     </div>
   );
 }

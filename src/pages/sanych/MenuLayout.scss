@@ -1,0 +1,65 @@
+/* src/pages/sanych/menu/MenuLayout.scss */
+
+.menu-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: rgba(195, 106, 218, 0.13);
+  border-radius: 24px;
+  padding: 25px;
+  justify-items: center;
+  color: rgba(2, 131, 24, 0.795);
+}
+
+.menu-layout__header {
+  border-radius:14px 14px 0px 0px;
+  background-color: beige;
+  padding-top: 4px;
+  padding-bottom: 8px;
+       margin: -25px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.menu-layout__title {
+  font-size: 24px;
+  margin-bottom: 6px;
+  color: rgba(2, 131, 24, 0.795);
+  margin-left: 15px;
+}
+
+.menu-layout__subtitle {
+  font-size: 14px;
+  font-weight: 700;
+  max-width: 620px;
+  opacity: 0.8;
+  color: rgba(2, 131, 24, 0.795);
+    margin-left: 10px;
+
+}
+
+.menu-layout__nav {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-left: 16px;
+  color: rgba(2, 131, 24, 0.795);
+}
+
+.menu-layout__nav-link {
+  font-size: 12px;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: rgba(0, 0, 0, 0.02);
+color: rgba(2, 131, 24, 0.795);
+  &.active {
+    border-color: rgba(0, 0, 0, 0.12);
+    background: rgba(0, 0, 0, 0.06);
+  }
+}
+
+.menu-layout__content {
+  padding-top: 8px;
+}

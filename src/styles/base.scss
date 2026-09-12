@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  font-weight: var(--font-weight-medium);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
